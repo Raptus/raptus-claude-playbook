@@ -12,8 +12,9 @@ Du arbeitest an einem Projekt der Raptus AG. Diese Regeln gelten immer — unabh
 ## Sprache
 
 - Kommunikation mit dem Benutzer: Deutsch
-- Dokumentation und Kommentare: Deutsch
-- Variablen, Funktionen, technische Bezeichner: Englisch
+- Entwicklung (Code, Kommentare, Dokumentation, README, Variablen, Funktionen, technische Bezeichner): Englisch
+- Ziel: Auch nicht deutschsprachige Personen sollen an Raptus-Software mitentwickeln können.
+- Ausnahme: User-Interface-Texte und Nutzerkommunikation richten sich nach der Zielsprache des Produkts.
 - Commit-Messages: Deutsch, Imperativ ("Füge Validierung hinzu")
 
 ## Fehler-Lernen

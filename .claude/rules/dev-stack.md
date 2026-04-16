@@ -26,26 +26,26 @@ globs: "*.ts,*.tsx,*.js,*.jsx,*.php,*.blade.php,package.json,composer.json"
 
 ### Next.js
 ```bash
-pnpm install        # Abhängigkeiten installieren
-pnpm dev            # Entwicklungsserver
-pnpm build          # Produktions-Build
-pnpm test           # Tests
+pnpm install        # Install dependencies
+pnpm dev            # Development server
+pnpm build          # Production build
+pnpm test           # Run tests
 pnpm lint           # Linting
 pnpm format         # Prettier
 ```
 
 ### Laravel
 ```bash
-composer install     # Abhängigkeiten
-php artisan serve    # Dev-Server
-php artisan test     # Tests
+composer install     # Install dependencies
+php artisan serve    # Dev server
+php artisan test     # Run tests
 ./vendor/bin/pint    # Formatting
 ```
 
 ### WordPress
 ```bash
-composer install     # Falls Composer genutzt wird
-npm run build        # Asset-Build (falls vorhanden)
+composer install     # Install dependencies (if Composer is used)
+npm run build        # Asset build (if available)
 ```
 
 ## Verifikation
@@ -74,12 +74,12 @@ Baue folgendes NIEMALS selbst. Verwende die genannte Bibliothek oder frage nach:
 
 ```
 src/
-├── app/              # App Router Seiten und Layouts
+├── app/              # App Router pages and layouts
 ├── components/
-│   ├── ui/           # Wiederverwendbare UI-Komponenten
-│   └── features/     # Fachliche Komponenten
-├── lib/              # Hilfsfunktionen, Konfigurationen
-├── hooks/            # Custom React Hooks
-├── types/            # TypeScript Types
-└── server/           # Server-Logik, DB-Queries, Services
+│   ├── ui/           # Reusable UI components
+│   └── features/     # Domain-specific components
+├── lib/              # Utility functions, configurations
+├── hooks/            # Custom React hooks
+├── types/            # TypeScript types
+└── server/           # Server logic, DB queries, services
 ```
