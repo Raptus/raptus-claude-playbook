@@ -46,3 +46,4 @@ Für technische Projekte gelten zusätzlich die Regeln in `.claude/rules/`:
 - `code-quality.md` — Codequalität und Standards
 - `security.md` — Sicherheitsregeln
 - `accessibility.md` — Zugänglichkeit
+- `worktrees.md` — Konventionen für parallele Sessions mit Git Worktrees

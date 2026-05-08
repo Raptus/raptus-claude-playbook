@@ -1,0 +1,10 @@
+# Files Claude Code copies into a new worktree.
+# Syntax matches .gitignore. See https://code.claude.com/docs/en/worktrees
+# Listed files are usually git-ignored but needed locally per worktree.
+
+.env
+.env.local
+.env.development
+.env.production
+mcp.json
+.claude/settings.local.json

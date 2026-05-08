@@ -1,143 +1,120 @@
 # Raptus Claude Playbook
 
-Claude Code Konfiguration und Team-Richtlinien der [Raptus AG](https://raptus.ch).
+Gemeinsame Grundlage für die Arbeit mit Claude Code bei der [Raptus AG](https://raptus.ch).
 
-Dieses Repo ist die gemeinsame Grundlage für die Zusammenarbeit mit Claude Code — für alle Rollen und Projekte. Es kann als **Template** für neue Projekte oder als **Referenz** für bestehende Projekte verwendet werden.
+Das Playbook ist Template für neue Projekte und Referenz für bestehende. Es definiert, wie Claude Code mit unseren Projekten umgeht: Regeln, Agents, Slash-Commands, Permissions und Workflow-Konventionen.
 
----
+## Warum mit dem Playbook arbeiten
 
-## Erste Schritte
+**Konsistenz über Projekte hinweg**
+Jeder im Team kann in jedes Repo einsteigen, ohne sich an neue Konventionen gewöhnen zu müssen. Claude verhält sich überall gleich.
+
+**Weniger Rückfragen, weniger Fehler**
+Sicherheitsregeln, Tech-Stack-Konventionen und Eskalationsregeln sind dokumentiert. Claude muss nicht raten, du musst nicht jedes Mal erklären.
+
+**Sichere Defaults**
+Keine irreversiblen Aktionen ohne Bestätigung, keine Secrets im Code, klare Eskalation bei sensiblen Bereichen (Auth, Migrationen, Personendaten).
+
+**Parallele Arbeit ohne Chaos**
+Konventionen für Worktrees, Sessions, Plan-Mode und Auto-Accept. Mehrere Claude-Sessions gleichzeitig produktiv führen.
+
+**Lerneffekt im Team**
+`lessons.md` sammelt Korrekturen aus realen Sessions. Jede Lektion gilt ab sofort für alle.
+
+## Für wen
+
+**Entwickler**
+Tech-Stack-Regeln (Next.js, Laravel, WordPress), Agents für Review und Verifikation, Slash-Commands für Commit-Workflows.
+
+**Designer und Content**
+Claude erstellt und bearbeitet Files auf Deutsch. Keine Programmierkenntnisse nötig.
+
+**Projektleitung**
+Spec-Writer-Agent erzeugt aus Tickets umsetzbare Specs. Eskalationsregeln machen Risiken sichtbar.
+
+## Schnellstart
 
 ### Voraussetzungen
 
-1. [Claude Code installieren](https://docs.anthropic.com/de/docs/claude-code) (`npm install -g @anthropic/claude-code`)
-2. Dieses Repo als Template für ein neues Projekt verwenden oder in ein bestehendes Projekt kopieren
+- [Claude Code installieren](https://docs.anthropic.com/de/docs/claude-code): `npm install -g @anthropic/claude-code`
 
-### Als Template für ein neues Projekt
+### Neues Projekt
 
 1. Auf GitHub: "Use this template" → "Create a new repository"
-2. Repo klonen: `git clone git@github.com:Raptus/<neues-projekt>.git`
+2. `git clone git@github.com:Raptus/<projekt>.git`
 3. `claude` im Projektverzeichnis starten
 
-### In ein bestehendes Projekt importieren
+### Bestehendes Projekt
 
 ```bash
 cp -r /pfad/zu/raptus-claude-playbook/.claude/ ./.claude/
 cp /pfad/zu/raptus-claude-playbook/CLAUDE.md ./CLAUDE.md
 cp /pfad/zu/raptus-claude-playbook/lessons.md ./lessons.md
+cp /pfad/zu/raptus-claude-playbook/.worktreeinclude ./.worktreeinclude
 ```
 
----
+## Wegweiser
 
-## Für alle — auch ohne Programmierkenntnisse
+Ausführliche Anleitungen in [`docs/`](docs/):
 
-Claude Code ist ein KI-Assistent im Terminal. Du schreibst auf Deutsch, was du brauchst — Claude erledigt es.
+- [Onboarding](docs/onboarding.md) — Pfad für neue Mitarbeitende
+- [Claude Code Grundlagen](docs/claude-code-basics.md) — Sessions, Plan-Mode, Permissions, MCP
+- [Worktrees](docs/worktrees.md) — Parallele Branches im Filesystem
+- [Parallele Entwicklung](docs/parallel-development.md) — Workflow, Reviewer-Kadenz, Auto-Accept
+- [Sicherheit beim parallelen Arbeiten](docs/security-parallel.md) — Credentials, Migrationen
 
-### Was Claude tun kann
+Regeln, die Claude direkt liest:
 
-- Dateien erstellen, bearbeiten und erklären
-- Fragen zum Projekt beantworten
-- Texte, Dokumentationen oder Strukturen vorschlagen
-- Bei Entwicklungsprojekten: Code schreiben, testen, reviewen
+- [`CLAUDE.md`](CLAUDE.md) — Kern-Regeln, gelten in jeder Session
+- [`.claude/rules/`](.claude/rules/) — Tech-Stack, Sicherheit, Codequalität, Zugänglichkeit, Worktrees
+- [`lessons.md`](lessons.md) — Lektionen aus realen Korrekturen
 
-### Was Claude NICHT selbstständig tut
-
-Diese Aktionen erfordern immer deine explizite Bestätigung:
-
-- Dateien löschen
-- Code auf einen Server pushen (deployen)
-- Passwörter oder Zugangsdaten speichern
-- Irreversible Änderungen an Datenbanken
-
-### Wenn Claude unsicher ist
-
-Claude sagt es. Antworte mit mehr Kontext oder hol eine Person mit der nötigen Fachkenntnis dazu.
-
-### Warnhinweise ernst nehmen
-
-Wenn Claude `⚠️ Review empfohlen` schreibt, bitte jemanden mit dem nötigen Fachwissen drüberzuschauen — bevor du weitermachst.
-
----
-
-## Struktur
+## Was im Repo liegt
 
 ```
-├── CLAUDE.md                  # Kern-Regeln (jede Session, alle Rollen)
+├── CLAUDE.md                  # Kern-Regeln, jede Session, alle Rollen
+├── .worktreeinclude           # Files, die in neue Worktrees kopiert werden
 ├── .claude/
-│   ├── settings.json          # Berechtigungen & Hooks (Team-shared)
-│   ├── settings.local.json    # Persönliche Overrides (git-ignored)
-│   ├── rules/
-│   │   ├── dev-stack.md       # Tech Stacks und Build-Commands
-│   │   ├── security.md        # Sicherheitsprüfungen
-│   │   ├── code-quality.md    # Qualitätsregeln
-│   │   └── accessibility.md   # Zugänglichkeit
-│   ├── commands/
-│   │   ├── commit-push-pr.md  # /commit-push-pr
-│   │   ├── review.md          # /review
-│   │   └── build-and-test.md  # /build-and-test
-│   ├── agents/
-│   │   ├── code-reviewer.md   # Review-Spezialist
-│   │   └── verify-app.md      # QA-Verifikation
-│   └── hooks/
-│       └── post-edit.sh       # Auto-Formatting nach Edits
+│   ├── settings.json          # Berechtigungen und Hooks (Team)
+│   ├── rules/                 # Tech-Stack, Security, Quality, A11y, Worktrees
+│   ├── commands/              # /commit-push-pr, /review, /build-and-test
+│   ├── agents/                # code-reviewer, verify-app, spec-writer
+│   └── hooks/                 # Auto-Formatting nach Edits
 ├── .mcp.json                  # MCP-Server (GitHub, erweiterbar)
-├── lessons.md                 # Fehler-Lern-Dokument
-└── CONTRIBUTING.md            # Wie man beiträgt
+├── docs/                      # Ausführliche Anleitungen
+├── lessons.md                 # Lektionen aus realen Korrekturen
+└── CONTRIBUTING.md            # Wie beitragen
 ```
 
----
+## Verfügbare Agents und Commands
 
-## Verfügbare Commands (für Entwickler)
-
-| Command | Beschreibung |
+| Agent | Zweck |
 |---|---|
-| `/commit-push-pr` | Änderungen committen, pushen, PR erstellen |
+| `code-reviewer` | Sicherheits- und Qualitätsreview |
+| `verify-app` | Build und Tests verifizieren |
+| `spec-writer` | Spec aus Ticket oder Bug erzeugen |
+
+| Command | Zweck |
+|---|---|
+| `/commit-push-pr` | Committen, pushen, PR erstellen |
 | `/review` | Code Review des aktuellen Branches |
-| `/build-and-test` | Build und Tests laufen lassen, Fehler beheben |
+| `/build-and-test` | Build und Tests laufen lassen |
 
-## Verfügbare Agents (für Entwickler)
+## Persönliche Anpassung
 
-| Agent | Beschreibung |
-|---|---|
-| `code-reviewer` | Gründliches Review mit Sicherheits- und Qualitätsfokus |
-| `verify-app` | Verifikation nach grösseren Änderungen |
-
----
-
-## Anpassung
-
-### Persönliche Einstellungen
-
-Erstelle `.claude/settings.local.json` (git-ignored) für persönliche Overrides:
+Persönliche Overrides in `.claude/settings.local.json` (git-ignored):
 
 ```json
 {
   "permissions": {
-    "allow": [
-      "Bash(docker *)"
-    ]
+    "allow": ["Bash(docker *)"]
   }
 }
 ```
 
-### Neue Rules hinzufügen
-
-Erstelle eine `.md`-Datei in `.claude/rules/` mit optionalem Frontmatter:
-
-```markdown
----
-description: Kurze Beschreibung
-globs: "*.ts,*.tsx"
----
-# Regelname
-- Regel 1
-```
-
----
-
 ## Beitragen
 
-Siehe [CONTRIBUTING.md](CONTRIBUTING.md).
+Siehe [CONTRIBUTING.md](CONTRIBUTING.md). Korrekturen aus realen Sessions gehören in [`lessons.md`](lessons.md).
 
 ## Team
 
