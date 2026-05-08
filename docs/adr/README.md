@@ -45,3 +45,7 @@ ADRs ergänzen den Code, ersetzen ihn nicht. Der Code beschreibt das **Wie**, de
 ## Template
 
 Siehe [`template.md`](template.md).
+
+## Index
+
+- [ADR 0001](0001-gemeinsames-claude-code-playbook.md): Gemeinsames Claude Code Playbook für alle Raptus-Projekte
