@@ -21,6 +21,9 @@ Konventionen für Worktrees, Sessions, Plan-Mode und Auto-Accept. Mehrere Claude
 **Lerneffekt im Team**
 `lessons.md` sammelt Korrekturen aus realen Sessions. Jede Lektion gilt ab sofort für alle.
 
+**Moderne Engineering-Praxis eingebaut**
+Agentic Code Review mit Policy-as-Code, ADRs für Architekturentscheidungen, Continuous Testing inklusive KI-Evals, DevSecOps mit Secret-Scanning und SBOM, Progressive Delivery mit Feature-Flags, Guardrails für Agent-Workflows.
+
 ## Für wen
 
 **Entwickler**
@@ -62,6 +65,12 @@ Ausführliche Anleitungen in [`docs/`](docs/):
 - [Worktrees](docs/worktrees.md) — Parallele Branches im Filesystem
 - [Parallele Entwicklung](docs/parallel-development.md) — Workflow, Reviewer-Kadenz, Auto-Accept
 - [Sicherheit beim parallelen Arbeiten](docs/security-parallel.md) — Credentials, Migrationen
+- [Agentic Code Review](docs/agentic-code-review.md) — Policy-as-Code und Human-in-the-Loop
+- [Architecture Decision Records](docs/adr/README.md) — Architekturentscheidungen dokumentieren
+- [Continuous Testing](docs/continuous-testing.md) — TDD mit Claude und KI-Evals
+- [DevSecOps](docs/devsecops.md) — Secret-Scanning, SBOM, Dependency-Pflege
+- [Progressive Delivery](docs/progressive-delivery.md) — CI/CD, Previews, Feature-Flags
+- [Agent Guardrails](docs/agent-guardrails.md) — Limits und Observability
 
 Regeln, die Claude direkt liest:
 
@@ -76,7 +85,7 @@ Regeln, die Claude direkt liest:
 ├── .worktreeinclude           # Files, die in neue Worktrees kopiert werden
 ├── .claude/
 │   ├── settings.json          # Berechtigungen und Hooks (Team)
-│   ├── rules/                 # Tech-Stack, Security, Quality, A11y, Worktrees
+│   ├── rules/                 # Tech-Stack, Security, Quality, A11y, Worktrees, Policies
 │   ├── commands/              # /commit-push-pr, /review, /build-and-test
 │   ├── agents/                # code-reviewer, verify-app, spec-writer
 │   └── hooks/                 # Auto-Formatting nach Edits

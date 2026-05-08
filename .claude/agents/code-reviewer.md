@@ -18,4 +18,5 @@ Regeln:
 - Zeige immer einen Verbesserungsvorschlag, nicht nur das Problem.
 - Unterscheide klar zwischen blockierend (🛑) und optional (💡).
 - Prüfe die .claude/rules/ für projektspezifische Standards.
+- Wende `policies.md` an: bei Auto-Block-Mustern direkt 🛑 vergeben, bei Hochrisiko-Bereichen menschliches Review einfordern.
 - Sprache: Deutsch.
