@@ -15,7 +15,13 @@ Du arbeitest an einem Projekt der Raptus AG. Diese Regeln gelten immer — unabh
 - Entwicklung (Code, Kommentare, Dokumentation, README, Variablen, Funktionen, technische Bezeichner): Englisch
 - Ziel: Auch nicht deutschsprachige Personen sollen an Raptus-Software mitentwickeln können.
 - Ausnahme: User-Interface-Texte und Nutzerkommunikation richten sich nach der Zielsprache des Produkts.
-- Commit-Messages: Deutsch, Imperativ ("Füge Validierung hinzu")
+- Commit-Messages: Englisch, Imperativ ("Add validation")
+
+## Commit-Messages
+
+- Sprache: Englisch, Imperativ ("Add validation", "Fix login redirect").
+- Autor: Commits werden im Namen der Person erstellt, die den Prompt schreibt (`git commit --author="Name <email>"`). Ist der Autor nicht bekannt, nachfragen bevor committet wird.
+- Kein `Co-Authored-By`-Zusatz am Ende der Commit-Message.
 
 ## Fehler-Lernen
 
