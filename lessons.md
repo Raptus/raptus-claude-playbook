@@ -8,6 +8,9 @@ Format: `- [YYYY-MM-DD]: [Was falsch war] → [Korrekte Vorgehensweise]`
 
 <!-- Neue Einträge oben anfügen -->
 
+- [2026-08-12]: Playbook-Konformität erst nach Projektabschluss geprüft (raptus-lernenden-tracker); Sprachkonflikt (Projekt Deutsch, Playbook Englisch) blieb dadurch unmarkiert → Playbook vor Projektstart konsultieren, Abweichungen sofort als bewusste Ausnahme dokumentieren oder als ⚠️ REGELVERSTOSS markieren.
+- [2026-08-12]: PDF-Extraktion aus mehrspaltigen Bildungsplänen mit Fliesstext-Modus lieferte falsche Lernort-Zuordnungen und falsche Sollwerte; Klassifikation per LLM-Einschätzung war unzuverlässig → pypdf extraction_mode="layout" verwenden und Vergleiche deterministisch (normalisierter Text + Taxonomie) statt per Einschätzung entscheiden.
+
 ## Parallele Sessions
 
 - Maximal 2 bis 3 Sessions parallel pro Person.
