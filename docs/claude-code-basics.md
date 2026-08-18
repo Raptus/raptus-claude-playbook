@@ -74,7 +74,16 @@ Typische Server: GitHub, Linear, Slack, Datenbanken.
 
 ## Statusline
 
-Zeigt aktuellen Branch, Worktree, Token-Verbrauch und Modell. Konfigurierbar via Skill `setup-statusline`.
+Zeigt Modell, Effort-Level, Ordner, Git-Branch und den angemeldeten Account, dazu Kontextnutzung,
+Kosten, Laufzeit und die Rate-Limits (5 Stunden / 7 Tage) mit Countdown bis zum Reset.
+Die Scripts liegen unter `.claude/statusline.sh` (macOS/Linux) und `.claude/statusline.ps1`
+(Windows). Beide haben denselben Funktionsumfang.
+
+Opt-in: standardmässig ist keine Statuszeile aktiv. `.claude/settings.json` im Repo enthält
+bewusst keinen `statusLine`-Block. Wer sie will, führt `/setup-statusline` aus. Der Command
+fragt zuerst den Geltungsbereich: **Projekt** (`.claude/settings.json`, gilt für alle, die das
+Repo klonen, wird committet und reviewt) oder **persönlich** (`~/.claude/settings.json`, Repo
+bleibt unberührt).
 
 ## Hooks
 
