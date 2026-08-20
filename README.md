@@ -75,7 +75,7 @@ Ausführliche Anleitungen in [`docs/`](docs/):
 Regeln, die Claude direkt liest:
 
 - [`CLAUDE.md`](CLAUDE.md) — Kern-Regeln, gelten in jeder Session
-- [`.claude/rules/`](.claude/rules/) — Tech-Stack, Sicherheit, Codequalität, Zugänglichkeit, Worktrees
+- [`.claude/rules/`](.claude/rules/) — Tech-Stack, Sicherheit, Codequalität, Zugänglichkeit, Worktrees, Diagnose
 - [`lessons.md`](lessons.md) — Lektionen aus realen Korrekturen
 
 ## Was im Repo liegt
@@ -85,10 +85,12 @@ Regeln, die Claude direkt liest:
 ├── .worktreeinclude           # Files, die in neue Worktrees kopiert werden
 ├── .claude/
 │   ├── settings.json          # Berechtigungen und Hooks (Team)
-│   ├── rules/                 # Tech-Stack, Security, Quality, A11y, Worktrees, Policies
+│   ├── rules/                 # Tech-Stack, Security, Quality, A11y, Worktrees, Policies, Diagnose
 │   ├── commands/              # /commit-push-pr, /review, /build-and-test
 │   ├── agents/                # code-reviewer, verify-app, spec-writer
-│   └── hooks/                 # Auto-Formatting nach Edits
+│   ├── hooks/                 # Auto-Formatting nach Edits
+│   ├── statusline.sh          # Statuszeile (macOS/Linux), optional, per /setup-statusline
+│   └── statusline.ps1         # Statuszeile (Windows), optional, per /setup-statusline
 ├── .mcp.json                  # MCP-Server (GitHub, erweiterbar)
 ├── docs/                      # Ausführliche Anleitungen
 ├── lessons.md                 # Lektionen aus realen Korrekturen

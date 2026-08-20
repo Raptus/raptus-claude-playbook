@@ -4,6 +4,24 @@ Alle nennenswerten Änderungen am Raptus Claude Playbook. Format nach [Keep a Ch
 
 ## [Unreleased]
 
+### Hinzugefügt
+- `.claude/rules/diagnose.md` — Beweisführung bei Fehlersuche: Quellenpflicht mit Zeilenangabe,
+  ganzer Fehlerpfad vor der ersten Antwort, Fremdcode nur aus der installierten Version,
+  Datenquellen validieren, Widerlegung mitliefern
+- `.claude/statusline.sh` (macOS/Linux) und `.claude/statusline.ps1` (Windows) als Dateien im Repo.
+  Beide zeigen Modell, Effort-Level, Ordner, Git-Branch und rechtsbündig den angemeldeten
+  Claude-Account, dazu Kontextnutzung mit Farbschwellen, Kosten, Laufzeit sowie 5-Stunden- und
+  7-Tage-Rate-Limit mit Countdown bis zum Reset. Kontextnutzung als Ganzzahl, Rate-Limit-Prozente
+  mit höchstens einer Nachkommastelle.
+  Opt-in: `.claude/settings.json` bleibt ohne `statusLine`-Block.
+
+### Geändert
+- `/setup-statusline` fragt den Geltungsbereich (Projekt oder persönlich), statt die persönliche
+  `~/.claude/settings.json` zu unterstellen, und kopiert die Scripts aus dem Repo statt den
+  Script-Inhalt einzubetten. Beispielausgabe aktualisiert
+- `CLAUDE.md` und `README.md` verweisen auf die neue Rule `diagnose.md`
+- `docs/claude-code-basics.md` beschreibt Inhalt und Opt-in-Charakter der Statuszeile
+
 ## [0.2.0] - 2026-05-08
 
 ### Hinzugefügt
